@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Test {
 
@@ -15,15 +16,46 @@ public class Test {
 
 2번을 입력 시 "출금할 금액을 입력하세요"
 사용자가 입력한 금액 - 기본 자산금액을 계산하여 총 자산금액을 출력하면 됨.
+		 
+		
+		int a = 100000;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1번 입력 시 입금, 2번 입력 시 출금입니다.");
+		int b = sc.nextInt();
+		int c;
+		
+		if(b==1) {
+			System.out.println("금액을 입력하세요");
+			c = sc.nextInt();
+			System.out.printf("총 금액은 %d입니다.",a+c);
+			
+		}
+		else if(b==2) {
+			System.out.println("금액을 입력하세요");
+			c = sc.nextInt();
+			System.out.printf("총 금액은 %d입니다.",a-c);
+		}
+		sc.close();
 		 */
 		
-		
-		//For 문 응용문제
+		//For 응용문제
 		
 		//응용문제 20~27까지 출력.
+		/*
+		int a;
+		
+		for(a=20;a<=27;a++) {
+			System.out.print(a+" ");
+		}
 		
 		//응용문제 39~21까지 출력.
+	
+		int a;
 		
+		for(a=39;a>=21;a--) {
+			System.out.print(a+" ");
+		}
+		*/
 		//1~10까지 출력
 		
 		/*응용문제 변수 2개를 이용하여 다음 데이터를 출력하시오.
@@ -36,7 +68,17 @@ public class Test {
 		 * [결과값]
 		 * 45,40,35,30,25,20,
 		 * 
-		 * */ 
+		 *
+		
+		int a;
+		int b=5;
+		int c;
+		
+		for(a=9;a>=4;a--) {
+			c = a*b;
+			System.out.println(c);
+		}
+		*/ 
 		
 		/*
 		 * 응용문제
@@ -45,10 +87,6 @@ public class Test {
 		 * 11,22,33,44,55,66,77,88,99
 		 * 
 		 * 
-		for(a=1;a<=9;a++) {
-			c=a*b;
-			System.out.print(c+",");
-		}
 		*/ 
 
 		// while 응용문제
