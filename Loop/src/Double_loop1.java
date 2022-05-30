@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Double_loop1 {
 
@@ -25,12 +26,42 @@ public class Double_loop1 {
 		 * "할인 %를 입력해 주세요:"라는 문구와 함께
 		 * 해당 할인 숫자를 입력하면 최종금액이 출력되도록 합니다.
 		 * 
-		 */
+		 
 		
-		int money = 10000;
-		int coupon = 20;
-		double a = money*(1-(coupon * 0.01));	
-		System.out.println(a);	
+		int money = 0;
+		int coupon;
+			
+		int c = 1; // 반복문 사용
+		
+		
+		Scanner sc = new Scanner(System.in);
+	
+		while(c<4) {
+			System.out.println("상품 금액을 입력해주세요");
+			int b = sc.nextInt();	
+			money+=b;
+			c++;
+		}
+		System.out.println("할인%를 입력해주세요");
+		coupon = sc.nextInt();
+		double a = 1-(coupon * 0.01);
+		System.out.println(money*a);
+		
+		sc.close();
+		
+		*/
+		
+		int f,ff;
+		int total;
+		
+		for(f=1;f<4;f++) {
+			//System.out.println(f);
+			for(ff=1;ff<5;ff++) {
+				total = f+ff;
+				System.out.println(f +"+"+ ff);
+			}
+		}
+		
 		
 		
 		
