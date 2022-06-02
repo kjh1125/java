@@ -9,7 +9,7 @@ public class Class2 {
 	inject.oksign(); // 가장 기본이 되는 함수축, static void를 사용 시
 	inject.test();
 	members.user("이순신"); // 괄호 안에 있는 데이터(인자값)
-	members.cal(5,10);
+	members.cal(5,10); // members 클래스 안 에 cal이라는 일반함수에 5와 10을 인자값으로 입력.
 	}
 
 }
@@ -35,7 +35,7 @@ class members{
 		String msg = names + "님 환영합니다.";
 		System.out.println(msg);
 	}
-	public static void cal(int a, int b) {
+	public static void cal(int a, int b) { // (자료형 이름, 자료형 이름) :인자값 두 개를 받음
 		int c = a*b;
 		System.out.println(c);
 	}
