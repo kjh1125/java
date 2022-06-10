@@ -21,8 +21,16 @@ public class Example1 {
 		
 		
 		Random r = new Random();
-		Scanner sc = new Scanner(System.in);
 		Example2 ex = new Example2();
+		Scanner sc = new Scanner(System.in);
+		/*
+		 * 일반 random 형식 (random double 자료형)
+		 * int pc = (int)(Math.random()*3+1); // 1,2,3 출력 원할 때.
+		 * 
+		 * util을 이용한 random형식
+		 * Random r = new Random();
+		 * int r1 = r.nextInt(10)+1; // 1~10 출력을 원할 때
+		 */
 		int r1 = r.nextInt(10)+1;
 		int f;
 		String msg; 
@@ -30,10 +38,17 @@ public class Example1 {
 		for(f=5;f>0;f--) {
 			msg = "총 기회는 "+f+"번 남았습니다. 1~10까지 번호 중 하나의 번호를 입력하세요";
 			
-			if(ex.b==false&&f>0) {
+			if(f>0) {
 			System.out.println(msg);
 			int sc1 = sc.nextInt();
 			ex.ex2(sc1,r1);
+			String out = ex.result();
+			System.out.println(out);
+			
+			int check = out.indexOf("정답"); // indexOf 단어검색 (-1)없음 (0)있음.
+			if(check==0) {
+				break;
+			}
 			}
 			
 			else{
@@ -42,7 +57,7 @@ public class Example1 {
 			
 			
 		}
-		if(ex.b==false&&f==0){
+		if(f==0){
 			msg = "실패";
 			System.out.println(msg);
 		}
