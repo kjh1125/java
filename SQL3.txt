@@ -1,0 +1,66 @@
+자동증가값(중복되지 않는 값 설정하기 위해)
+
+[숫자]
+int(1) : 0~9 int(2) : 0~99
+int(4) : 0~9999
+
+tinyint(3) : 0~255
+smallint(7) : 0~65535
+mediumint(8) : 0~1600000
+int(10): 0 ~ 4290000000
+bigint(17) : 0 ~ 184000000000~~0 //long으로 생각
+
+[문자]
+char(255) -> char(100) : 영어 100자, 한글로는 40~50정도
+varchar(255) -> 영어:255 한글:200자 (주소) / 상품명
+tinytext -> URL 경로, 게시판 제목,상품의 부가적인 설명 //텍스트를 통째로 받는 거라서 varchar와 다름. /대소문자 구분이 안 되서 상품명으로 사용은 어려움.
+text() -> 한글기준 6만자 //게시판
+mediumtext() -> 한글:11만자 //상품 상세설명, 분쟁소지 내용 등
+longtext() -> 한글: 4억자
+
+[소수점]
+float(12)
+double(38)
+
+[날짜 + 시간] - server시간
+date -> default(구성형태) 
+ex) date -> default '0001.01.01'
+date default '0001.01.01'
+
+time -> default(구성형태)
+ex) time default '01:00:00'
+time default '010000'
+
+datetime(직접프로그래머가 -시간 기준 적용 필요)
+datetime -> default '0001-01-01 01:00:00';
+
+timestamp (자동으로 입력됨 - 시간, 날짜) 
+timestamp -> default '0001-01-01 01:00:00';
+
+[null, not null]
+pmid char(7) not null  - > pmid 필드명에 6자까지 무조건 필수로 입력
+ptext text null -> ptext필드명 다량의 문자를 입력(필수X)
+
+[자동증가값] - backend가 사용하는 유일한 고유값
+auto_increment (table에서 딱 한 번 extra에 사용) - 절대 중복되지 않음.
+ex) 1,2,3,4,5,6  (3 삭제 시)-> 1,2,4,5,6,7
+
+[KEY]
+Primary key (중복되면 안 되는 값 설정 시) - auto_increment (회원 아이디등).
+
+[update] - 수정 명령어
+update 테이블명 set 필드명 ='필드값',필드명 ='필드값' where 필드명 ='중복되지않는 값';
+
+[alter] - 테이블에서 필드를 조정 가능
+alter table 테이블명 add 필드명 필드속성; (table에 필드 추가)
+alter table 테이블명 drop 필드명; (table의 필드 삭제)
+alter table 테이블명 add 필드명 필드속성 after 위치할 곳의 이전 필드명기입 // 적지 않을 경우 자동으로 마지막에 필드 추가됨. //first, after 두개 , 단, 버전마다 명령어 다를 수 있음.
+alter table 테이블명 modify 필드명 변경할 필드속성 (해당 필드의 속성 변경 가능)
+*단, 필드속성 중 null인 경우 명확하게 확인 필요, 데이터가 들어가 있는 경우 변경이 어려움, updata 명령어 이용하여 데이터를 삭제해야 null 속성 값 변경이 가능.
+
+[백업 및 백업 불러오는 방법] // Mysql + Mariadb에서 해당 명령어로 백업 및 복구 가능.
+백업하기(부등호 주의!!)
+mysqldump-u 사용자명 -p 데이터베이스명> 경로/데이터베이스명.sql
+복구하기(부등호 주의!!)
+mysql -u 사용자명 -p 데이터베이스명 < 경로/데이터베이스명.sql
+

@@ -1,0 +1,9 @@
+create table travel(
+tidx int(4) not null auto_increment,
+tname varchar(150) not null,
+taddr text not null,
+tperson int(8) not null,
+tcar int(8) not null,
+tdate date not null default '0001-01-01',
+primary key(tidx)
+);

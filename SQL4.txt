@@ -1,0 +1,102 @@
+create table h_member(
+hidx int(8) not null auto_increment, - 자동증가값
+hid char(200) not null, - 아이디
+hpass varchar(250) not null, - 패스워드 암호화
+hemail char(100) null, - 이메일
+htel char(11) not null, - 전화번호
+hcity char(2) not null, -거주지역
+hpart tinytext null, - 관심분야(배열)
+hage char(10) not null, - 연령
+hindate timestamp not null default current_timestamp, -가입일자
+hdrop_date datetime not null default '0001-01-01 01:00:00', - 휴면, 탈퇴일자
+primary key(hidx,hid) - 자동증가값, 아이디는 중복되지 않음.
+);
+
+insert into h_member (hidx,hid,hpass,hemail,htel,hcity,hpart,hage,hindate,hdrop_date)\
+values ('0','hong',SHA('a123456'),'hong@gmail.com','01012345678','02','0,1,1,0,0','20','2022-01-01 01:00:00','0001-01-01 01:00:00');
+
+
+insert into h_member (hidx,hid,hpass,hemail,htel,hcity,hpart,hage,hindate,hdrop_date)\
+values ('0','hong',SHA('a123456'),'hong@gmail.com','01023231231','02','0,1,1,0,0','30','2022-01-01 01:00:00','0001-01-01 01:00:00');
+
+insert into h_member (hidx,hid,hpass,hemail,htel,hcity,hpart,hage,hindate,hdrop_date,haddr)\
+values ('0','kim',SHA('a123456'),'hong@gmail.com','01021231231','02','0,1,1,0,0','50','2022-01-01 01:00:00','0001-01-01 01:00:00','');
+
+
+
+create table event(
+hidx int(8) not null auto_increment,
+hid char(200) not null,
+hpass varchar(250) not null,
+htel char(11) not null,
+hemail char(100) not null,
+vipnum char(10) null,
+wsoftware enum('window','office','xbox') not null default 'window',
+hindate timestamp not null default current_timestamp,
+hdrop_date datetime not null default '0001-01-01 01:00:00',
+primary key(hidx,hid),
+unique key(hid)
+);
+
+create table event(
+hidx int(8) not null auto_increment, - 자동증가값
+hid char(200) not null, - 아이디
+hpass varchar(250) not null, - 패스워드 암호화
+htel char(11) not null, - 전화번호
+hemail char(100) not null, - 이메일
+vipnum char(10) null,
+wsoftware tinytext null, - 구매의사 소프트웨어 // wsoftware enum('window','office','xbox') not null default 'window',
+hindate timestamp not null default current_timestamp, -가입일자
+hdrop_date datetime not null default '0001-01-01 01:00:00', - 휴면, 탈퇴일자
+primary key(hidx,hid) - 자동증가값, 아이디는 중복되지 않음.
+);
+
+create table board(
+hidx int(8) not null auto_increment,
+nsubject char(100) not null,
+nwrite char(100) not null,
+npass char(20) not null,
+ntext text not null,
+ncount int(6) not null default '0',
+ndate date not null default '0001-01-01',
+
+primary key(hidx),
+unique key(nsubject)
+
+);
+
+enum: 필드 생성 시 값을 정하여 선택된 값만 받기 위할 때 사용하는 속성값
+예) agree1 enum('Y','N') not null default 'N'
+sms_av enum('Y','N') not null default 'N'
+
+insert into event (hidx,hid,hpass,htel,hemail,vipnum,wsoftware,hindate,hdrop_date)\
+values ('0','kim','a1234','01012345678','kim@gmail.com','1234567890','window','2022-01-01 01:00:00','0001-01-01 01:00:00');
+
+
+
+insert into h_member1 (hidx
+
+전화번호 int로 받으면 안 되는 이유 // int의 경우 처음 0이 안 들어가고 중간에 - 이 있는 경우 마이너스로 적용됨.)
+password 길게 하는 이유 암호화 하는 경우 숫자가 늘어남.
+password 1234567 // 암호화 없이 입력받을 시 법적으로 문제
+(암호화 명령어)
+-base64
+-AES
+-SHA
+-MD5
+-HASH
+-복합사용 ex)base64+MD5
+
+[체크박스 받는 법]
+hpart1 char(1) null default '0',
+hpart2 char(1) null default '0',
+hpart3 char(1) null default '0',
+hpart4 char(1) null default '0',
+hpart5 char(1) null default '0',
+
+hpart tinytext null, 배열로 받을 경우 ex)1,0,0,0,1 
+
+
+[날짜 받을 때]
+hindate datetime not null default '0001-01-01 01:00:00', /수동
+hindate timestamp not null default '0001-01-01 01:00:00',/자동
