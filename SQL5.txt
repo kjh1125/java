@@ -1,0 +1,215 @@
+My SQL 설치 시 끝이 홀 수인 버전을 설치해야 함. ( 짝수인 경우 베타버전임)
+
+
+select sum(필드명) from 테이블명 : 필드속성  int(숫자)인 경우 사용 가능
+select *, 다른 필드명, sum(필드명) from 테이블명 : 이런식으로도 사용 가능
+ex) select *,sum(pmoney) from pay where pdt>='2022-05-11 00:00:00' and pdt <= '2022-05-22 23:59:59'; /특정일자 
+select * from 테이블명 order by desc : 내림차순 (높은숫자부터)
+select * from 테이블명 order by asc : 오름차순 (낮은숫자부터)
+select pstore,sum(pmoney) as totalmoney from pay group by pstore; // pstore 기준으로 pmoney의 sum을 보는 명령어, totalmoney는 가상의 필드명을 임의로 지정한 것.
+select pstore,sum(pmoney) as totalmoney,count(*) from pay group by pstore; // pstore의 숫자까지 
+
+group by 필드명 : 같은 필드끼리 모아서 추출
+
+select 필드명, sum(필드명) as 가상의 필드명 from 테이블명 group by 필드명 
+
+create table pay(
+pidx int(8) not null auto_increment,
+pstore char(20) not null,
+pcodenum char(40) not null,
+pdt datetime not null default '0001-01-01 01:00:00',
+pcard char(10) not null,
+pcardtype char(10) not null,
+pmoney int (7) not null,
+pagree enum('Y','N','C') not null,
+primary key(pidx)
+);
+
+각 카드사별 건 수 
+
+insert into pay values ('0','롯데백화점','9203101937988','2022-05-01 19:20:50','신한카드','일시불','37000','Y');
+insert into pay values ('0','현대백화점','0612329255417','2022-05-07 11:10:00','현대카드','일시불','19000','Y');
+insert into pay values ('0','이마트인천점','9210233222339','2022-05-08 13:02:15','하나카드','2개월','118000','Y');
+insert into pay values ('0','현대백화점','3611264692414','2022-05-08 17:12:55','신한카드','일시불','248000','Y');
+insert into pay values ('0','롯데백화점','2456781123245','2022-05-10 13:12:55','국민카드','3개월','154800','Y');
+insert into pay values ('0','이마트인천점','5678818234496','2022-05-10 17:09:51','현대카드','일시불','24000','Y');
+insert into pay values ('0','롯데백화점','7656462265410','2022-05-11 14:12:55','신한카드','일시불','61000','Y');
+insert into pay values ('0','롯데백화점','0612329255417','2022-05-12 15:32:50','신한카드','일시불','19000','Y');
+insert into pay values ('0','이마트마곡점','1263656514459','2022-05-19 16:07:44','하나카드','2개월','76000','Y');
+insert into pay values ('0','롯데백화점','8766545233212','2022-05-20 16:16:55','현대카드','일시불','58900','Y');
+insert into pay values ('0','이마트마곡점','7612323337489','2022-05-20 16:12:55','신한카드','일시불','32500','Y');
+insert into pay values ('0','롯데백화점','9331312245524','2022-05-21 10:12:50','신한카드','3개월','228700','Y');
+insert into pay values ('0','현대백화점','7656462265410','2022-05-21 11:12:45','롯데카드','일시불','61000','Y');
+insert into pay values ('0','현대백화점','5678818234496','2022-05-21 13:42:35','하나카드','일시불','24000','Y');
+insert into pay values ('0','롯데백화점','9203101937988','2022-05-21 14:52:54','국민카드','일시불','37000','Y');
+insert into pay values ('0','이마트마곡점','3611264692414','2022-05-22 16:32:52','하나카드','2개월','248000','Y');
+insert into pay values ('0','롯데백화점','5678818234496','2022-05-22 17:49:51','현대카드','일시불','24000','Y');
+insert into pay values ('0','이마트화곡점','9203101937988','2022-01-07 13:12:55','롯데카드','2개월','37000','Y');
+
+
+
+create table product(
+pidx int(8) not null auto_increment,
+pcodenum char(50) not null,
+pmenu char(100) not null,
+pmoney int (7) not null,
+pagree enum('Y','N','C') not null,
+primary key(pidx)
+);
+
+
+insert into product values ('0','9203101937988','토니모리 원더 세라미이드 500ml','37000','Y');
+insert into product values ('0','0612329255417','토니모리 토니 랩 에이씨 컨트롤 500ml','19000','Y');
+insert into product values ('0','9210233222339','토니모리 원더 퀵 카밍 토너 4종 세트','118000','Y');
+insert into product values ('0','3611264692414','토니모리 토니 랩 에이씨 컨트롤 5종세트','248000','Y');
+insert into product values ('0','2456781123245','토니모리 토니 랩 에이씨 컨트롤 토너 180ml','154800','Y');
+insert into product values ('0','5678818234496','토니모리 알로에 99% 수딩젤 250ml','24000','Y');
+insert into product values ('0','7656462265410','토니모리 어성초시카 퀵 카밍 패드 200ml 4개','61000','Y');
+insert into product values ('0','1263656514459','토니모리 어성초시카 퀵 카밍 수딩 젤 300ml','76000','Y');
+insert into product values ('0','8766545233212','토니모리 슈퍼 인텐스 골드 24K 140ml','58900','Y');
+insert into product values ('0','7612323337489','토니모리 바이오이엑스 골드 솔루션 토너 130ml','32500','Y');
+insert into product values ('0','9331312245524','토니모리 바이오이엑스 골드 기초화장품 2종  세트','228700','Y');
+
+
+[테이블끼리 조인하는 방법]
+select p.pcodenum,z.pmenu,p.pstore,p.pdt,p.pmoney from pay as p join product as z on p.pcodenum = z.pcodenum;
+select a.필드명, b.필드명 from 본테이블 as 별명 명칭(a) join 비교테이블 as 별명 명칭(b) on 별명명칭.필드명(a) = 별명명칭.필드명(b);
+
+
+1. 회원가입 테이블
+2. 적립금 테이블
+3. 장바구니 테이블
+4. 결제 테이블
+5. 상품 테이블
+6. 비회원 테이블
+
+ 9203101937988 해당 제품의 총 매출 금액 출력 
+[출력방식]
+상품코드, 상품명, 총 판매금액
+
+select p.pcodenum,z.pmenu,count(z.pmenu) as count from pay as p join product as z on p.pcodenum=z.pcodenum group by z.pmenu order by count asc;
+
+응용문제 
+각 상품별 판매 갯수를 출력하시오
+상품코드, 상품명, 판매개수
+select p.pcodenum,z.pmenu,count(z.pmenu) as count from pay as p join product as z on p.pcodenum=z.pcodenum group by z.pmenu order by count asc;
+
+응용문제
+5월 22일 날짜 대한 판매 상품을 확인
+상품코드, 상품명, 판매점, 판매일자, 판매금액
+
+select p.pcodenum,z.pmenu,p.pstore,p.pdt,p.pmoney from pay as p join product as z on p.pcodenum=z.pcodenum where p.pdt like '2022-05-22%';
+
+아이디 중복 x
+create table members (
+
+
+create table members(
+idx int(8) not null auto_increment,
+id char(20) not null,
+name char(40) not null,
+tel char(20) not null,
+email char(30) not null,
+dt datetime not null default '0001-01-01 01:00:00',
+area char(100) not null,
+primary key(idx,id),
+unique key(id)
+);
+
+insert into members values('0','sumin','김수빈','01022345889','sumin@nate.com','2022-07-01 11:04:22','서울');
+insert into members values('0','kjmins','김정민','01032347789','kjmins@nate.com','2022-07-01 12:14:22','전라도');
+insert into members values('0','junghyun_kim','김정현','01073425789','junghyun@nate.com','2022-07-02 10:11:22','서울');
+insert into members values('0','jinsu1004','김진수','0102345789','jinsu1004@nate.com','2022-07-02 12:44:02','서울');
+insert into members values('0','kim8282_s','김창순','01032348989','kim82@nate.com','2022-07-02 13:04:12','제주도');
+insert into members values('0','parkdo_h1','박도현','01022348900','parkdo@nate.com','2022-07-02 15:04:32','강원도');
+insert into members values('0','parkno_1','박은경','01032345789','parkno@naver.com','2022-07-03 09:04:40','경상도');
+insert into members valuse('0','yuna_jjang','오유나','01022349089','jjang@naver.com','2022-07-03 10:04:32','경기도');
+insert into members values('0','kmin_lee','이경민','01022345089','kmin_lee19@nate.com','2022-07-03 12:44:11','서울');
+insert into members values('0','lkh2452','이경훈','01023443789','lkh2452@gmail.com','2022-07-03 16:04:22','인천');
+insert into members values('0','leeylim048','이유림','01023457789','leeylim048@nate.com','2022-07-04 17:24:22','서울');
+insert into members values('0','jiyou_lee79','이지유','01052344889','jiyou_lee79@gmail.com','2022-07-04 19:47:02','세종');
+insert into members values('0','jinhlee','이진형','01012347789','jinhlee@naver.com','2022-07-04 20:04:20','강원도');
+insert into members values('0','janghoho','장운','01022345089','janghoho@nate.com','2022-07-05 08:14:12','전라도');
+insert into members values('0','kihyun_top','조기현','01042343789','kihyun_top@naver.com','2022-07-05 15:54:22','제주도');
+insert into members values('0','ha_backend','하윤성','0132345959','backend@naver.com','2022-07-06 10:34:21','서울');
+insert into members values('0','ji_sunhana','황지선','0101345989','sunhana@gmain.com','2022-07-06 11:24:52','부산');
+
+payok
+
+create table payok(
+idx int(8) not null auto_increment,
+code char(20) not null,
+menu char(50) not null,
+id char(20) not null,
+point int(8) not null,
+card char(20) not null,
+agree enum('Y','N') not null,
+primary key(idx,id)
+);
+
+
+insert into payok values('0','05070227','헤라 블랙 쿠션 리필 15g','jinhlee','26500','신한카드','Y');
+insert into payok values('0','15073227','아리얼 립앤아이 리무버 패드','lkh2452','8830','국민카드','Y');
+insert into payok values('0','35072884','코리노스 화이트닝 썬크림','parkdo_h1','14400','하나카드','Y');
+insert into payok values('0','42313420','하우리즈 스틱청소기','yuna_jjang','228000','현대카드','Y');
+insert into payok values('0','05070227','헤라 블랙 쿠션 리필 15g','jiyou_lee79','26500','국민카드','Y');
+insert into payok values('0','35072884','코리노스 화이트닝 썬크림','kmin_lee','14400','신한카드','Y');
+insert into payok values('0','42313420','하우리즈 스틱청소기','lkh2452','228000','국민카드','Y');
+insert into payok values('0','15070980','코멧 홈 이동식 3단 빨래바구니','kihyun_top','24900','신한카드','Y');
+insert into payok values('0','35072884','코리노스 화이트닝 썬크림','sumin','14400','현대카드','Y');
+insert into payok values('0','05070227','헤라 블랙 쿠션 리필 15g','ha_backend','26500','현대카드','Y');
+
+
+
+points - 적립금
+
+
+create table points(
+idx int(8) not null auto_increment,
+id char(20) not null,
+point int(8) not null,
+agree enum('Y','N') not null,
+dt datetime not null default '0001-01-01 01:00:00',
+primary key(idx,id)
+);
+
+
+insert into points values ('0','sumin','1000','Y','2022-07-01 11:04:22');
+insert into points values ('0','kjmins','1000','Y','2022-07-01 12:14:22');
+insert into points values ('0','junghyun_kim','1000','Y','2022-07-02 10:11:22');
+insert into points values ('0','parkdo_h1','1000','Y','2022-07-02 15:04:32');
+insert into points values ('0','yuna_jjang','1000','Y','2022-07-03 10:04:32');
+insert into points values ('0','kmin_lee','1000','Y','2022-07-03 12:44:11');
+insert into points values ('0','kihyun_top','1000','Y','2022-07-05 15:54:22');
+insert into points values ('0','ha_backend','1000','Y','2022-07-06 10:34:21');
+insert into points values ('0','lkh2452','3000','Y','2022-07-06 12:14:21');
+insert into points values ('0','jinhlee','4720','Y','2022-07-07 11:00:01');
+insert into points values ('0','lkh2452','1000','N','2022-07-07 11:10:00');
+insert into points values ('0','ha_backend','2700','Y','2022-07-08 11:30:21');
+insert into points values ('0','kjmins','3000','Y','2022-07-08 12:12:00');
+insert into points values ('0','parkdo_h1','2200','Y','2022-07-08 13:04:22');
+insert into points values ('0','sumin','1300','Y','2022-07-08 14:12:52');
+insert into points values ('0','kihyun_top','1200','Y','2022-07-08 15:20:00');
+insert into points values ('0','yuna_jjang','1400','Y','2022-07-08 15:21:55');
+insert into points values ('0','kmin_lee','3200','Y','2022-07-08 16:41:10');
+insert into points values ('0','ji_sunhana','1300','Y','2022-07-08 20:10:02');
+insert into points values ('0','kmin_lee','4200','N','2022-07-09 11:22:31');
+insert into points values ('0','kihyun_top','2200','N','2022-07-09 12:00:08');
+insert into points values ('0','ha_backend','3000','Y','2022-07-09 13:32:21');
+insert into points values ('0','sumin','2000','N','2022-07-09 14:07:02');
+insert into points values ('0','jiyou_lee79','1000','Y','2022-07-09 17:00:51');
+insert into points values ('0','jiyou_lee79','3000','Y','2022-07-09 17:11:12');
+insert into points values ('0','jinhlee','4720','N','2022-07-09 18:22:59');
+
+
+select sum(point), (select sum(point) from points where id='kmin_lee' and agree='N')as usepoint from points where id='kmin_lee' and agree='Y';
+
+(select sum(point) from points where id='kmin_lee' and agree='N')as usepoint
+
+select p.id,sum(p.point), (select sum(p.point) from points as p join members as m on p.id = m.id where m.name='조기현' and p.agree='N' )as usepoint from points as p join members as m on p.id = m.id where m.name='조기현' and p.agree='Y';
+
+
+
+id, 적립금액, 사용금액
+
+select m.id, m.name, p.code, p.menu, p.point, p.card from payok as p join members as m on p.id =m.id where m.name ='이진형' and p.agree='Y';

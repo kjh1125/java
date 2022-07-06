@@ -1,0 +1,82 @@
+int나 char 지정 시 범위를 따로 적지 않음.
+그 대신 MYSQL보다 파일이 무거워짐
+
+[netstat -a 명령어를 통해 port(1433)를 열어 다른 프로그램(java등)과 연결하기 위한 절차]
+서비스 - SQL 서버 브라우저 시작
+고급 방화벽  - 인바운드 새 규칙 포트 1433로 생성
+C:\Windows\SysWOW64\SQLServerManager15.msc
+SQL Server 네트워크 구성 (공유,명명파이프,TCP/IP) 모두 사용으로 변경.
+-TCP/IP 속성에서 IP주소 IPAll의 TCP포트 1433지정
+
+[설정방법]
+1. 제어판 > windows Defender > 고급설정 > inbound 규칙 > 새규칙 > 포트 > 
+특정로컬포트 1433을 입력>연결허용
+2.  C:\Windows\SysWOW64\SQLServerManager15.msc 실행
+3. SQL Server 서비스 모두 실행 
+4. SQL Server 네트워크 구성 > SQLEXPRESS에 대한 프로토콜 모두 사용
+ - TCP/IP > IP주소 탭에서 IPAll > TCP 동적포트의 0을 지움 > TCP 포트 1433으로 지정
+5. SQL Server 서비스 모두 다시시작
+
+SQL Management Studio
+접속할 때 자신의 IP 주소를 입력해서 연결해서 사용.
+
+[사용자 추가방법]
+Security -> 새로운 사용자 -> 3번째 체크 삭제(접속시마다 비번변경 설정)
+Default database -> 만들어둔 database 설정
+Server Roles -> 보통 Public
+user mapping -> database 설정 및 db_owner,dbreader,dbwriter, dbbackup설정
+서버 > 속성 > security의 server 서버 인증방식은 SQL도 쓰는 걸로 변경
+
+비밀번호 암호화 방법
+pwdencrypt('비밀번호')
+
+[xls -> table 변환방법]
+
+xls파일명과 테이블명이 같아야 함.
+insert into school select * from school1$;로 이전에 생성한 테이블로 이전
+자동증가값 추가를 위함
+
+
+
+alter table h_member add constraint hid unique(hid);
+
+alter table h_member drop constraint hid;
+
+
+1. 자동 증가값
+2. 학교명(50)
+3. 홈페이지 text
+4. 구분: '공립', '사립','' // 공백까지
+5. 우편번호(5)
+6. 주소 (text)
+7. 교무실 전화번호 (13)
+8. 행정실 전화번호 (13)
+9. FAX 번호
+
+교무실, 행정실 전화번호 및 팩스번호가 모두 없는 data는 삭제 
+062-718-3503 
+
+create table school(
+idx int not null,
+name nchar(50) not null,
+hpage ntext,
+part nchar(20),
+postnum nchar(20),
+addr ntext,
+tel1 nchar(13),
+tel2 nchar(13),
+faxtel nchar(20),
+primary key(idx)
+);
+
+
+응용문제1
+공립학교가 몇 개가 있는지 확인
+select count(*) from school where spart='공립'
+응용문제2
+유치원이 몇 개 있는지 확인
+select count(*) from school where sname like '%유치원'
+
+응용문제3
+주소로 등록된 값 중 "남구"에 몇 개 있는지 확인
+select count(*) from school where saddr like '%남구%'
