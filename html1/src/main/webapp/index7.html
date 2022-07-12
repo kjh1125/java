@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="EUC-KR">
+<title>HTML1일차 HTML 3.0 기본태그 3</title>
+</head>
+<body>
+<!-- <input type="text" style="width: 200px; height: 30px">
+<input type="button" value="로그인" style="width: 100px; height: 100px"> -->
+<!-- px=pixel em,in,inch(외국에서 사용하는 크기 단위) 모바일 %,vh,vw-->
+<!-- style CSS의 초기버전  -->
+<!-- tabindex 속성은 : 커서가 tab키를 누를 경우 이동하는 순서를 정할 때 사용하는 속성 -->
+<form method="post" action="http://naver.com">
+<table border="1", width="550", height="120">
+
+<tr>
+<td width="100">아이디</td>
+<td width="300"><input type="text" style="width:280px ;height: 30px" tabindex ="1"></td>
+
+<td rowspan="2"><input type="submit" value="로그인" style="width: 130px ;height: 70px" tabindex ="3"></td>
+
+</tr>
+<tr>
+
+<td>패스워드</td>
+<td><input type="text" style="width:280px; height:30px" tabindex ="2"></td>
+
+</tr>
+
+<tr>
+<td colspan="3"><input type="checkbox" checked>자동 로그인</td>
+</tr>
+
+</table>
+</form>
+
+</body>
+</html>

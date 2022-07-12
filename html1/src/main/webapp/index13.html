@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>HTML 2일차 padding</title>
+<style>
+
+body{margin:0px; padding:0px;}
+.olcss{
+width:150px;
+list-style:none;
+margin:0px; padding:0px;
+border:1px solid red;
+}
+
+.licss{
+width:140px; height:30px;
+border:1px solid black;
+/* padding-left:10px; */
+padding: 0 0 0 10px;
+}
+/*  */
+.licss:hover{
+background-color: aqua;
+
+}
+/* 부모태그에 width가 없을 경우 자동적으로 100% 적용 
+자식태그와 같은 width로 잡아주면 됨.
+ */
+.olcss2{
+width:760px;
+list-style:none;
+margin:0px; padding:0px;
+border:1px solid red;
+}
+
+.licss2{
+width:150px; height:30px;
+border:1px solid black;
+float:left;	
+}
+/* float를 사용하여 가로설정 시 width를 boarder까지 생각하여 잡아주지 않으면 제대로 작동하지 않음. */
+
+</style>
+
+</head>
+<body>
+<ol class="olcss">
+
+<li class="licss">1</li>
+<li class="licss">2</li>
+<li class="licss">3</li>
+<li class="licss">4</li>
+<li class="licss">5</li>
+
+</ol>
+<ol class="olcss2">
+
+<li class="licss2">1</li>
+<li class="licss2">2</li>
+<li class="licss2">3</li>
+<li class="licss2">4</li>
+<li class="licss2">5</li>
+
+</ol>
+
+</body>
+</html>

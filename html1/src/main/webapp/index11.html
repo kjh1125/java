@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>padding, margin</title>
+
+<style>
+/* 태그에 그대로 적용 시 .#을 사용하지 않음. */
+body{margin:0; padding:0;} /* 안쪽(padding), 바깥쪽(margin) 0 사용 시 공백 삭제  */
+.box{width:100px; height: 100px; background-color: red;}
+.color1{background-color: orange; margin-top:20px;}
+.color2{background-color: pink; margin-left:20px;}
+.color3{background-color: purple; margin-left:-20px;}
+.color4{background-color: green; margin-top: -20px;}
+/* margin: 바깥쪽 여백 left,right,top,bottom // -값으로 사용 시 위치를 당김 */
+.bigbox{width:50px; height:50px; background-color: yellow; padding-left:450px; padding-top: 450px}
+.sbox{width:50px; height:50px; background-color: black; padding-top: 20px; padding-left:10px;}
+
+/* padding은 안쪽 여백이 늘어남, padding 적용 시 오브젝트 크기가 늘어남 */
+
+.ssbox{width:10px; height:10px; background-color: white; margin-top: 20px}
+
+</style>
+</head>
+<body>
+<!-- disabled:readonly와 비슷하지만 값을 전달 받지 못 함 (사용자에게 서비스를 제공하지 못 할 경우) -->
+<input type="text" value="hong" disabled="disabled">
+<input type="checkbox" disabled="disabled">자동로그인
+<br>
+<input type ="radio" name="card" checked>신한카드
+<input type ="radio" name="card" >국민카드
+<input type ="radio" name="card" disabled="disabled">신한카드
+
+<div class="box"></div>
+<div class="box color1"></div>
+<div class="box color2"></div>
+<div class="box color3"></div>
+<div class="box color4"></div>
+<div class="bigbox"><div class="sbox"><div class="ssbox"></div></div></div>
+
+
+
+</body>
+</html>

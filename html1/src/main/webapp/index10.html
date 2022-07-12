@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>HTML 2일차 HTML 4.0 + CSS 2.0</title>
+<style>
+.box{ /* .(class), #(id) 사용하기 위한 기호 */
+width:100px;
+height:100px;
+background-color: orange;
+}
+
+.color{
+background-color: black;
+}
+
+#box{
+width:100px;
+height:100px;
+background-color: pink;
+}
+
+.box3{ 
+width:100px;
+height:100px;
+background-color: orange;
+border-radius: 100px; /* border-radius : 타원형으로 만들 때 사용하는 속성 */
+}
+
+.btn{ 
+width:200px;
+height:40px;
+background-color: skyblue;
+border-radius: 40px;
+text-align: center; /* left,center,right  */
+line-height: 40px;  /* 한 라인에 대한 높이값 */
+}
+
+
+
+
+</style>
+<!-- class(style 사용하기 위한 속성), id(javascript), name(Backend에게 전송하는 속성 값)   -->
+</head>
+<body>
+<!-- <input type="text" name="mid"백앤드 id="mid"프론트 class="mid"퍼블리셔> -->
+<div style="width:100px; height:100px; background-color: blue"></div>
+<div class="box3"></div>
+<div id="box"></div>
+<div class="box color"></div>
+<div class="btn"></div>
+<!-- class는 여러가지 값을 가져올 수 있음, id는 중복이 안 됨.  -->
+
+</body>
+</html>

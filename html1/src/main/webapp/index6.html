@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>HTML1일차 HTML 3.0 기본태그 2</title>
+</head>
+<body>
+<select>
+<option>skt</option>
+<option>lgt</option>
+<option>kt</option>
+<option>알뜰폰</option>
+</select>
+<!-- select : 사용자가 범위 안의 내용 선택 시 사용, 선택태그라고도 함. -->
+<!-- option : select의 자식태그  -->
+
+<br><br>
+<textarea rows="10" cols="50" readonly>
+이용약관
+
+
+</textarea>
+<!-- textarea : 사용자가 많은 양의 내용을 입력하고자 할 때 사용 -->
+<br>
+<form method="post" action="http://naver.com">
+<input type="text">
+<br>
+<input type="checkbox">SMS수신
+<br>
+<input type="password">
+<br>
+<input type="submit" value="전송">
+<input type="button" value="전송2" onclick="abc()">
+<br>
+<input type="reset" value="취소">
+</form>
+<!-- form 태그란 사용자가입력한 데이터를 전송하기 위한 태그 
+submit : form과 함께 사용됨 //enter로 작동하며 로그인등에 쓰임
+button: 단독 작동 // form에 넣을 필요 없음
+reset: 초기화
+
+-->
+
+</body>
+</html>
+
+
+<script>
+function abc() {
+	location.href="http://nate.com"
+}
+</script>
