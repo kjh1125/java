@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{padding: 0; margin: 0;}
+
+.menu{width: 1200px; height: 65px; background-color: blue; margin:0 auto; padding-top:15px; position: relative;}
+.logo{width: 240px; height: 50px; background-color: lime; left:15px; position: absolute;}
+.main_menu{width: 600px; height: 50px; background-color: red; right:15px; position: absolute;}
+
+.box{ width: 1200px; height: 400px; position:relative;
+background-color:aqua;
+margin: 0 auto;
+text-align: center;
+}
+
+.disc{width: 15px; height: 15px; background-color: black;
+border-radius: 15px; float:left; margin-left:10px; 
+
+}
+.nomargin{
+margin-left:0px;
+}
+.red{
+background-color: red;
+}
+.disc_span{
+height: 15px; 
+display: inline-block;
+/* margin-left: auto, margin-right: auto : 부모 태그 가로 기준으로 
+왼쪽, 오른쪽을 동일한 사이즈로 지정
+단, Position: relative 혹은 static인 경우만 가능. 
+ */
+
+margin-left: auto;
+margin-right: auto;
+position: relative;
+top:360px;
+}
+/*
+중요: margin:0 auto 사용할 수 있는 경우
+1. position:absolute(x)
+2. width 값이 적용되어 있어야 함.
+
+  */
+
+/* inline, inline-block : span에 주로 사용하는 속성입니다.
+inline: 자동 사이즈로 조절이 되나 줄바꿈을 하지 않음 (width) 
+(width, height 적용되나 line-height 적용 안 됨.)
+inline-block: 자동 사이즈로 조절이 되나 줄바꿈을 하지 못 함
+(width, height, line-height 적용 됨.)
+ */
+
+.ulcss{
+width: 1200px; height: auto;
+list-style: none;
+margin: 0; padding: 0;
+background-color: orange;
+margin: 0 auto;
+}
+.licss{
+width: 250px; height: 300px;
+background-color: black;
+float: left;
+margin-left: 40px;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.copyright {width: 1200px; height: 80px; background-color: blue; margin: 0 auto;
+clear: both;
+text-align: right;
+margin-top:20px;
+padding-top: 20px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- 상단 메뉴파트  -->
+<div class="menu">
+
+<span class="logo"></span>
+
+<span class="main_menu"></span>
+
+
+</div>
+<!-- 배너파트 -->
+<div class="box">
+<span class="disc_span">
+<div class="disc nomargin red"></div>
+<div class="disc"></div>
+<div class="disc"></div>
+<div class="disc"></div>
+<div class="disc"></div>
+</span>
+</div>
+
+<!-- 상품출력 파트 -->
+
+<!-- 여백공간 코드 작성 시 좌우 px를 합친다는 생각으로 퍼블리싱 해야 함 -->
+
+<ul class= "ulcss">
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+<br>
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+<br>
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+<li class="licss"></li>
+
+</ul>
+
+<!-- 카피라이터 파트 -->
+<div class="copyright">
+
+<span>Copyright c 2022 Naver Corp. All Right reserved</span><br>
+<span>회사명, 대표자명, 사업자등록번호, 통신판매번호, <a href="https://ftc.go.kr/bizCommPop.do?wrkr_no=1428138153">[사업자등록확인]</a></span><br>
+<span>대표전화, 개인정보담당자명, 대표메일, 주소</span>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

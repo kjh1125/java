@@ -1,0 +1,37 @@
+<!DOCTYPE html> <!--HTML5 사용한다는 뜻 -->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- viewport를 사용한 이유는 모바일 웹에서도 사용할 수 있도록 하기 위함. -->
+
+<title>HTML 4일차 HTML 5.0 + CSS 3.0</title>
+
+<link rel="stylesheet" type="text/css" href="./index7.css?v=2022071201">
+<!-- 버전이름을 바꿔줘야 바뀐 설정이 적용됨  *.css?v=2022071201-->
+<!-- css파일을 로드하기 위해서 사용되는 태그  -->
+
+</head>
+<body>
+<!-- label: span태그의 업그레이드 버전 
+for 속성: input type 태그 속성에서 id를 이용하여 핸들링 할 수 있음. <ex- 글씨를 클릭해도 체크박스 적용 됨
+-->
+<label class="box"></label>
+<input type="checkbox" id="ck"><label for="ck">자동로그인</label>
+<br>
+<input type="radio" name="a" id="a1"><label for="a1">동의함</label>
+<input type="radio" name="a" id="a2"><label for="a2">동의안함</label>
+<br><br>
+<!-- text에 list라는 속성 추가됨. datalist라는 태그와 연결 가능.(id 연결 필요) ex)자동완성 넣을 때  -->
+<input type="text" list="search">
+<datalist id="search"> <!-- datalist는 select의 업그레이드 태그임 -->
+<option>JAVA</option>
+<option>MYSQL</option>
+<option>MSSQL</option>
+<option>HTML</option>
+<option>CSS</option>
+</datalist>
+
+</body>
+</html>
