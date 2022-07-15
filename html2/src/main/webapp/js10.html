@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 2일차 단어검색 및 값 비교</title>
+<script>
+//equals라는 단어 없음.
+var a = "홍길동";
+var b = "홍길동";
+
+if(a==b){
+	console.log("해당 값이 같습니다.")
+}
+else{
+	console.log("해당 값이 같지 않음")
+}
+var c = 10;
+var d = "10";
+console.log(typeof(c));
+console.log(typeof(d));
+
+if(c===d){ //==(문자,숫자 구분없이 값이 같을 경우 같다고 나옴) ===(값이 같아도 타입이 다를 경우 다르다고 나옴.)
+	console.log("해당 값이 같습니다.")
+}
+else{
+	console.log("해당 값이 같지 않음")
+}
+
+var word = "홍길동님 환영합니다.";
+console.log(word.indexOf("홍길동")); //indexOf() 단어검색 -1(없음)
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

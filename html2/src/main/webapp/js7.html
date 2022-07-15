@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script src="./js7_2.js"></script>
+<script src="./js7_1.js"></script>
+<script >
+/* getter a 결과값 받은 후 3으로 나누어 최종 계산값을 setter a로 전송 */
+ var b =0;
+function ra(n){
+	b = n/3;
+	return b;
+	
+}
+a1();
+ 
+/* 결과 값 받은 후 다음 문자와 함께 B로 다시 전송
+"홍길동님 최종 결제 금액은 xxxxx원입니다."
+*/
+
+var msg;
+function rb(nn){
+	msg = "홍길동님 최종결제 금액"+nn+"입니다.";
+	return msg;
+	
+}
+b1();
+
+var data = [1,2,3,4,5]; //숫자배열
+console.log(data[0]); //배열[인데스번호]
+
+var data2 = ["홍길동","이순신","강감찬"]; //문자배열
+//console.log(data2[1]);
+
+var ea = data2.length;
+console.log(ea);
+
+var w=0;
+while(w<ea){
+	console.log(data2[w]);
+	w++;
+}
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Javascript 2일차 함수 + return 함수 응용</title>
+
+<script src="./js6.js"></script>
+<script>
+function return1(v){
+	var msg;
+	if(v%2==0){
+		msg="짝수";
+		
+	}
+	else{
+		msg="홀수";
+	}
+	return msg;
+	
+}
+
+call1();
+</script>
+
+
+
+<script src="http://192.168.100.201:8080/html2/js6.js"></script>
+
+<script>
+function return1(v){
+	var msg;
+	if(v%2==0){
+		msg="짝수";
+		
+	}
+	else{
+		msg="홀수";
+	}
+	return msg;
+	
+}
+
+call1();
+
+</script>
+
+<!-- /* 해당 함수 이용 결과 값 return 받는 함수 작성
+숫자 20과 30을 함수로 전달.
+결과값 출력 600 출력
+*/ -->
+
+<script>
+function setter(n,nn){
+	var result = getter(n,nn); 
+/* 	console.log(result); */
+}
+
+function getter(n,nn){
+	var result = n*nn;
+	return result;
+}
+setter(20,30);
+
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
