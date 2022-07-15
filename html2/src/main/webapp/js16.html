@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>간편회원가입</title>
+<script src=./js16_1.js></script>
+<script src=./js16_2.js></script>
+<script>
+function abc(s1){
+
+if(se.value=="nm"){
+	var name = namesearch(s1);
+	console.log(name);
+}
+else if(se.value=="id"){
+	idsearch(s1);
+}
+else{
+	
+	console.log("검색할 파트와 검색할 단어를 입력 하셔야 합니다.");
+	
+}
+
+}
+
+</script>
+
+
+</head>
+<body>
+
+<select name="se" id="se">
+<option value="">[검색할 파트]</option>
+<option value="nm">이름</option>
+<option value="id">아이디</option>
+</select>
+<input type="text" name="txt" id="txt">
+<input type="button" value="고객검색" onclick="abc(txt.value)">
+
+</body>
+</html>
